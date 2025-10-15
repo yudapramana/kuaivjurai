@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BotManController;
+// use App\Http\Controllers\BotManController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
@@ -18,8 +18,11 @@ use Illuminate\Http\Request;
 
 // Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
-Route::get('/botman', [BotManController::class, 'handle']);
-Route::post('/botman', [BotManController::class, 'handle']);
+// Route::get('/botman', [BotManController::class, 'handle']);
+// Route::post('/botman', [BotManController::class, 'handle']);
+
+Route::get('/botman', [App\Http\Controllers\HomeController::class, 'handle']);
+Route::post('/botman', [App\Http\Controllers\HomeController::class, 'handle']);
 
 Route::get('/ads.txt', function () {
     return view('ads');
