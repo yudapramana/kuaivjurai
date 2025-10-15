@@ -307,12 +307,6 @@
                             'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
                         ],
                         [
-                            'nama' => 'MURSIDA, S.HI',
-                            'jabatan' => 'Penata Layanan Operasional',
-                            'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
-                        ],
-                        [
                             'nama' => 'DERI NOFITTA SARI, S.Pd.I',
                             'jabatan' => 'Penata Layanan Operasional',
                             'peran' => 'Staf Pelayanan',

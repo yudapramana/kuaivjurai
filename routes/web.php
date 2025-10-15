@@ -16,7 +16,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+// Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+
+Route::get('/botman', [BotManController::class, 'handle']);
+Route::post('/botman', [BotManController::class, 'handle']);
 
 Route::get('/ads.txt', function () {
     return view('ads');
