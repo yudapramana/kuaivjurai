@@ -3,6 +3,8 @@
 
 <head>
 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
