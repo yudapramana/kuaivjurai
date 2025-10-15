@@ -12,6 +12,7 @@ use Config;
 use DB;
 use Auth;
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
 
         config(['app.locale' => 'id']);
         Carbon::setLocale('id');
