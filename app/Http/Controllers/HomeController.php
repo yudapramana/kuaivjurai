@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Conversations\WelcomeConversation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,18 +29,5 @@ class HomeController extends Controller
     }
 
 
-    public function handle()
-    {
-        $botman = app('botman');
-
-        $botman->hears('{message}', function ($botman, $message) {
-            if (strtolower($message) === 'hi') {
-                $botman->startConversation(new WelcomeConversation);
-            } else {
-                $botman->reply("Ketik 'hi' untuk memulai percakapan.");
-            }
-        });
-
-        $botman->listen();
-    }
+    
 }

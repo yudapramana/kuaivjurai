@@ -21,8 +21,8 @@ use Illuminate\Http\Request;
 // Route::get('/botman', [BotManController::class, 'handle']);
 // Route::post('/botman', [BotManController::class, 'handle']);
 
-Route::get('/botman', [App\Http\Controllers\HomeController::class, 'handle']);
-Route::post('/botman', [App\Http\Controllers\HomeController::class, 'handle']);
+Route::get('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
+Route::post('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
 
 Route::get('/ads.txt', function () {
     return view('ads');
