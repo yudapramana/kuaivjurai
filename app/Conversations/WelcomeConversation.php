@@ -3,56 +3,96 @@
 namespace App\Conversations;
 
 use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
+use BotMan\BotMan\Messages\Incoming\Answer;
+use App\Conversations\FeedbackConversation;
+use App\Conversations\PelayananConversation;
+use App\Conversations\PendaftaranNikahConversation;
+use App\Conversations\TrackingConversation;
+
 
 class WelcomeConversation extends Conversation
 {
-    protected $name;
-
     public function run()
     {
-        $this->askName();
+        $this->greet();
     }
 
-    public function askName()
+    protected function greet()
     {
-        $this->ask("Halo! Siapa nama Anda?", function (Answer $answer) {
-            $this->name = $answer->getText();
-            $this->say("Senang berkenalan dengan Anda, {$this->name}.");
+        $name = $this->bot->getUser()?->getFirstName() ?: null;
+        $this->say("Assalamu’alaikum 👋".($name ? " $name" : "")."<br><b>Selamat datang di Palanta Sakinah — KUA IV Jurai</b>.");
+
+        $this->askLanguage();
+    }
+
+    protected function askLanguage()
+    {
+        $q = Question::create("Pilih bahasa / Choose language:")
+            ->addButtons([
+                Button::create('🇮🇩 Indonesia')->value('id'),
+                Button::create('🇬🇧 English')->value('en'),
+            ]);
+
+        $this->ask($q, function (Answer $answer) {
+            $lang = $answer->getValue() ?: 'id';
+            $this->bot->userStorage()->save(['lang' => $lang]);
+
             $this->askMenu();
         });
     }
 
-    public function askMenu()
+    protected function askMenu()
     {
-        $this->ask("Apakah ada yang dapat saya bantu?<br><br>Silakan pilih:<br><br>[1] Informasi daftar pelayanan<br>[2] Jadwal pelayanan<br>[3] Alamat & Kontak KUA<br>[4] Persyaratan nikah<br>[5] Selesai", function (Answer $answer) {
-            $choice = trim(strtolower($answer->getText()));
+        $lang = $this->bot->userStorage()->get('lang') ?? 'id';
+        $title = $lang === 'en' ? 'Main Menu' : 'Menu Utama';
 
-            switch ($choice) {
-                case '1':
-                    $this->bot->startConversation(new PelayananConversation);
-                    break;
-                case '2':
-                    $this->say("Jadwal pelayanan:<br>Senin - Jumat<br>Pukul 08.00 - 16.00 WIB");
-                    $this->askMenu();
-                    break;
-                case '3':
-                    $this->say("Alamat KUA:<br>Jl. Contoh No. 123, Pesisir Selatan<br>Telepon: (0756) 123456");
-                    $this->askMenu();
-                    break;
-                case '4':
-                    $this->say("Persyaratan nikah:<br>- Fotokopi KTP dan KK<br>- Surat pengantar RT/RW<br>- Surat keterangan belum menikah<br>- Pas foto 3x4");
-                    $this->askMenu();
-                    break;
-                case '5':
-                    $this->say("Terima kasih telah menggunakan layanan ini.<br>Semoga harimu menyenangkan!");
-                    break;
-                default:
-                    $this->say("Maaf, pilihan tidak dikenali.<br>Silakan pilih angka dari 1 sampai 5.");
-                    $this->askMenu();
-            }
+        $q = Question::create("<b>$title</b><br>Pilih topik:")
+            ->addButtons([
+                Button::create('📝 Pendaftaran Nikah')->value('nikah'),
+                Button::create('🔁 Rujuk')->value('rujuk'),
+                Button::create('📚 Bimwin')->value('bimwin'),
+                Button::create('📄 Legalisasi')->value('legalisasi'),
+                Button::create('👨‍👩‍👧 Konsultasi')->value('konsultasi'),
+                Button::create('🔎 Cek Status')->value('status'),
+                Button::create('📍 Jam & Lokasi')->value('lokasi'),
+                Button::create('ℹ️ FAQ')->value('faq'),
+            ]);
+
+        $this->ask($q, function (Answer $answer) {
+            $v = strtolower($answer->getValue() ?: $answer->getText());
+
+            return match ($v) {
+                'nikah'      => $this->bot->startConversation(new PendaftaranNikahConversation()),
+                'rujuk'      => $this->bot->startConversation(new RujukConversation()),
+                'bimwin'     => $this->bot->startConversation(new BimwinConversation()),
+                'legalisasi' => $this->bot->startConversation(new LegalisasiConversation()),
+                'konsultasi' => $this->bot->startConversation(new KonsultasiConversation()),
+                'status'     => $this->bot->startConversation(new TrackingConversation()),
+                'lokasi'     => $this->showLocation(),
+                'faq'        => $this->showFAQ(),
+                default      => $this->repeatMenu(),
+            };
         });
+    }
+
+    protected function showLocation()
+    {
+        $this->say("🕘 Jam Layanan: <br>Senin–Jumat 08.00–16.00 WIB<br>Istirahat 12.00–13.00 WIB");
+        $this->say("📍 Alamat: KUA IV Jurai, Pesisir Selatan (Maps tersedia di halaman kontak).");
+        $this->askMenu();
+    }
+
+    protected function showFAQ()
+    {
+        $this->say("FAQ singkat:<br>• Berkas nikah minimal H-10.<br>• Bimwin jadwal bergilir tiap pekan.<br>• Legalisasi selesai H+1 kerja.");
+        $this->askMenu();
+    }
+
+    protected function repeatMenu()
+    {
+        $this->say("Pilihan tidak dikenali. Silakan pilih via tombol.");
+        $this->askMenu();
     }
 }

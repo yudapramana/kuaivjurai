@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ChatController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +23,15 @@ use Illuminate\Http\Request;
 // Route::get('/botman', [BotManController::class, 'handle']);
 // Route::post('/botman', [BotManController::class, 'handle']);
 
-Route::get('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
-Route::post('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
+// Route::get('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
+// Route::post('/botman', [App\Http\Controllers\ChatController::class, 'handle']);
+
+
+Route::match(['get','post'], '/botman', [ChatController::class, 'handle'])->name('botman.handle');
+// Optional health check
+Route::get('/botman/ping', fn() => 'pong');
+
+
 
 Route::get('/ads.txt', function () {
     return view('ads');

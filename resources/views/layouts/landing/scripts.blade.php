@@ -1,7 +1,7 @@
 <!-- Template Main JS File -->
 <script src="{{ asset('sailor/js/main.js') }}"></script>
 
-<script>
+{{-- <script>
     var botmanWidget = {
         // === Branding & teks ===
         title: 'KUA IV Jurai',
@@ -57,7 +57,24 @@
     .conversation__messages__timestamp {
         opacity: .7 !important;
     }
-</style>
+</style> --}}
+
+<script>
+    var botmanWidget = {
+        title: 'KUA IV Jurai',
+        aboutText: 'Palanta Sakinah',
+        introMessage: "Assalamu’alaikum 👋\nSelamat datang di layanan chat *KUA IV Jurai*.\nKetik **menu** untuk memulai atau pilih tombol di bawah.",
+        placeholderText: 'Tulis pertanyaan Anda…',
+        mainColor: '#175941',
+        bubbleBackground: '#175941',
+        displayMessageTime: true,
+        // mobileHeight: '65%',
+        // desktopHeight: '480px',
+        // frameEndpoint: '/botman/chat', // kalau pakai custom
+        chatServer: '{{ route('botman.handle') }}',
+        aboutLink: '/tentang', // opsional
+    };
+</script>
 
 <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 

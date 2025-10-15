@@ -3,9 +3,10 @@
 namespace App\Conversations;
 
 use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
+use BotMan\BotMan\Messages\Incoming\Answer;
+use App\Conversations\WelcomeConversation;
 
 class PelayananConversation extends Conversation
 {
@@ -14,41 +15,45 @@ class PelayananConversation extends Conversation
         $this->askPelayananDetail();
     }
 
-    public function askPelayananDetail()
+    protected function askPelayananDetail()
     {
-        $question = Question::create("Silakan pilih layanan untuk melihat syaratnya:")
+        $q = Question::create("Pilih jenis layanan yang ingin kamu ketahui syarat & alurnya:")
             ->addButtons([
-                Button::create('Pendaftaran Nikah')->value('pendaftaran'),
-                Button::create('Bimbingan Perkawinan')->value('bimwin'),
-                Button::create('Legalisasi Dokumen')->value('legalisasi'),
-                Button::create('👨‍👩Konsultasi Keluarga')->value('konsultasi'),
-                Button::create('🔙 Kembali')->value('kembali'),
+                Button::create('📝 Pendaftaran Nikah')->value('pendaftaran'),
+                Button::create('🔁 Rujuk')->value('rujuk'),
+                Button::create('📚 Bimwin')->value('bimwin'),
+                Button::create('📄 Legalisasi')->value('legalisasi'),
+                Button::create('👨‍👩‍👧 Konsultasi')->value('konsultasi'),
+                Button::create('⬅️ Kembali ke Menu')->value('kembali'),
             ]);
 
-        $this->ask($question, function (Answer $answer) {
+        $this->ask($q, function (Answer $answer) {
             $value = $answer->getValue() ?: strtolower(trim($answer->getText()));
 
             switch ($value) {
                 case 'pendaftaran':
-                    $this->say("Syarat Pendaftaran Nikah:<br>- KTP & KK calon pengantin<br>- Surat pengantar RT/RW<br>- Surat belum menikah dari kelurahan<br>- Pas foto 3x4 (5 lembar)");
+                    $this->say("Syarat ringkas Pendaftaran Nikah:<br>• N1–N4 dari Kelurahan/Desa<br>• Fotokopi KTP & KK<br>• Pas foto 3×4 (5 lbr)<br>• Dispensasi bila < 10 hari kerja<br>• Berkas tambahan jika duda/janda.");
+                    $this->say("Ingin daftar sekarang? Ketik: <b>nikah</b>");
+                    break;
+                case 'rujuk':
+                    $this->say("Rujuk:<br>• Akta cerai talak/ikrar talak<br>• KTP dan KK<br>• Surat keterangan dari KUA asal nikah.");
                     break;
                 case 'bimwin':
-                    $this->say("Syarat Bimbingan Perkawinan:<br>- Terdaftar sebagai calon pengantin di KUA<br>- Mengisi formulir pendaftaran bimwin<br>- Fotokopi KTP dan KK");
+                    $this->say("Bimwin (Bimbingan Perkawinan):<br>• Formulir pendaftaran<br>• Fotokopi KTP & KK<br>• Jadwal bergilir, kuota terbatas.");
                     break;
                 case 'legalisasi':
-                    $this->say("Syarat Legalisasi Dokumen:<br>- Membawa dokumen asli dan salinan<br>- Surat permohonan legalisasi<br>- KTP pemohon");
+                    $this->say("Legalisasi:<br>• Bawa dokumen asli & salinan<br>• Surat permohonan legalisasi<br>• KTP pemohon<br>• Estimasi selesai H+1 kerja.");
                     break;
                 case 'konsultasi':
-                    $this->say("Syarat Konsultasi Keluarga:<br>- Datang langsung ke KUA sesuai jadwal<br>- Mengisi formulir konsultasi<br>- Bersedia mengikuti sesi pendampingan");
+                    $this->say("Konsultasi/Mediasi Keluarga:<br>• Isi formulir konseling singkat<br>• Janji temu dengan penyuluh/mediator.");
                     break;
                 case 'kembali':
-                    $this->bot->startConversation(new WelcomeConversation); // kembali ke menu utama
+                    $this->bot->startConversation(new WelcomeConversation());
                     return;
                 default:
                     $this->say("Maaf, pilihan tidak dikenali: <b>{$value}</b>");
             }
 
-            // tampilkan ulang tombol pilihan
             $this->askPelayananDetail();
         });
     }
