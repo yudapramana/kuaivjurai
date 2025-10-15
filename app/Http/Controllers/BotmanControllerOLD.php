@@ -6,7 +6,6 @@ use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\WelcomeConversation;
 
-
 class BotManController extends Controller
 {
     public function handle()
