@@ -322,7 +322,7 @@
                             'nama' => 'NANDA ESA PUTRA, S.Pd.I',
                             'jabatan' => 'Penata Layanan Operasional',
                             'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760602824/PandanViewMandeh/iovbx18scfyysvp2sfqz.jpg',
                         ],
                     ];
                 @endphp
@@ -331,7 +331,9 @@
                     @foreach ($pegawai as $p)
                         <div class="col-12 col-md-6 col-lg-3">
                             <div class="card org-card shadow-sm border-0 h-100">
-                                <img src="{{ $p['photo'] }}" alt="{{ $p['peran'] }}" class="img-fluid rounded-top">
+                                <div class="rounded-top overflow-hidden" style="width:267px;height:220px;">
+                                    <img src="{{ $p['photo'] }}" alt="{{ $p['peran'] }}" class="w-100 h-100 d-block" style="object-fit:cover;object-position:50% 10%;" loading="lazy">
+                                </div>
                                 <div class="card-body">
                                     <span class="badge badge-role mb-2 px-2 py-1 rounded">{{ $p['peran'] }}</span>
                                     <h6 class="mb-1">{{ $p['nama'] }}</h6>
