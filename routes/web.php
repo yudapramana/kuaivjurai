@@ -31,7 +31,50 @@ Route::match(['get','post'], '/botman', [ChatController::class, 'handle'])->name
 // Optional health check
 Route::get('/botman/ping', fn() => 'pong');
 
-
+Route::get('/standard-services', function () {
+    $standar = [
+        [
+        'kategori' => 'PELAYANAN NIKAH DAN RUJUK',
+        'items' => [
+            ['layanan'=>'Pendaftaran nikah dan rujuk', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Pemeriksaan nikah dan rujuk', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Pencatatan nikah dan rujuk', 'waktu'=>'45 Menit'],
+            ['layanan'=>'Penerbitan surat rekomendasi nikah', 'waktu'=>'15 Menit'],
+            ['layanan'=>'Perbaikan dan perubahan data nikah', 'waktu'=>'20 Menit'],
+            ['layanan'=>'Penerbitan surat keterangan belum menikah', 'waktu'=>'15 Menit'],
+            ['layanan'=>'Penerbitan duplikat buku nikah', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Penerbitan surat taukil wali bil kitabah', 'waktu'=>'20 Menit'],
+        ],
+        ],
+        [
+        'kategori' => 'PELAYANAN BIMBINGAN',
+        'items' => [
+            ['layanan'=>'Bimbingan perkawinan calon pengantin mandiri', 'waktu'=>'300 Menit'],
+            ['layanan'=>'Bimbingan remaja usia sekolah (BRUS)', 'waktu'=>'240 Menit'],
+            ['layanan'=>'Bimbingan keluarga sakinah', 'waktu'=>'180 Menit'],
+        ],
+        ],
+        [
+        'kategori' => 'PELAYANAN WAKAF DAN KEMASJIDAN',
+        'items' => [
+            ['layanan'=>'Pendaftaran wakaf', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Penerbitan akta ikrar wakaf', 'waktu'=>'60 Menit'],
+            ['layanan'=>'Penerbitan surat keterangan masjid', 'waktu'=>'15 Menit'],
+            ['layanan'=>'Penerbitan surat rekomendasi masjid', 'waktu'=>'15 Menit'],
+        ],
+        ],
+        [
+        'kategori' => 'PELAYANAN UMUM',
+        'items' => [
+            ['layanan'=>'Legalisasi buku nikah', 'waktu'=>'10 Menit'],
+            ['layanan'=>'Konsultasi rumah tangga', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Konsultasi keagamaan', 'waktu'=>'30 Menit'],
+            ['layanan'=>'Penerbitan surat keterangan', 'waktu'=>'15 Menit'],
+        ],
+        ],
+    ];
+    return view('landing.standard-services', compact('standar'));
+});
 
 Route::get('/ads.txt', function () {
     return view('ads');

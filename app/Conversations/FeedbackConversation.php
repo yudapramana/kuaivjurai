@@ -84,7 +84,7 @@ class FeedbackConversation extends Conversation
         $this->ask($q, function (Answer $ans) {
             $v = $ans->getValue() ?: strtolower($ans->getText());
             if ($v === 'wa') {
-                $this->say("Silakan klik: <a target='_blank' href='https://wa.me/62812XXXXXXX?text=Halo%20KUA%20IV%20Jurai%2C%20saya%20butuh%20bantuan'>Hubungi via WhatsApp</a>");
+                $this->say("Silakan klik: <a target='_blank' href='https://wa.me/6285364424419?text=Halo%20KUA%20IV%20Jurai%2C%20saya%20butuh%20bantuan'>Hubungi via WhatsApp</a>");
             }
             $this->bot->startConversation(new WelcomeConversation());
         });

@@ -12,7 +12,17 @@
                 {{-- Jika halaman lain memuat header ini, gunakan /#anchor agar tetap menuju halaman utama --}}
                 <li><a href="/#hero" class="{{ request()->is('/') ? 'active' : '' }}">{{ __('messages.menu.home') ?? 'Beranda' }}</a></li>
                 <li><a href="/#profil">{{ __('messages.menu.aboutus') ?? 'Profil' }}</a></li>
-                <li><a href="/#layanan">{{ __('messages.menu.services') ?? 'Layanan' }}</a></li>
+                {{-- <li><a href="/#layanan">{{ __('messages.menu.services') ?? 'Layanan' }}</a></li> --}}
+
+                <li class="dropdown"><a href="/all-services"><span>{{ __('messages.menu.services') }}</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/all-services">Syarat Pelayanan</a></li>
+                        <li><a href="/standard-services">Standar Pelayanan</a></li>
+                    </ul>
+                </li>
+
+
+
                 <li><a href="/#struktur">Struktur</a></li>
                 <li><a href="/#edukasi">Edukasi</a></li>
                 <li><a href="/#faq">FAQ</a></li>
