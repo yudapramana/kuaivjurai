@@ -63,7 +63,7 @@
     var botmanWidget = {
         title: 'KUA IV Jurai',
         aboutText: 'Palanta Sakinah',
-        introMessage: "Assalamu’alaikum 👋\nSelamat datang di layanan chat *KUA IV Jurai*.\nKetik **menu** untuk memulai atau pilih tombol di bawah.",
+        introMessage: "Assalamu’alaikum 👋\nSelamat datang di layanan chat <b>KUA IV Jurai</b>.\nKetik <b><i>menu</i></b> untuk memulai atau pilih tombol di bawah.",
         placeholderText: 'Tulis pertanyaan Anda…',
         mainColor: '#175941',
         bubbleBackground: '#175941',

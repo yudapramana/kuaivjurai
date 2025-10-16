@@ -490,7 +490,7 @@
                                 </table>
 
                                 <div class="mt-3 d-flex gap-2">
-                                    <a class="btn btn-whatsapp" href="https://wa.me/62812XXXXXXX?text=Assalamualaikum%2C%20saya%20ingin%20informasi%20layanan%20KUA." target="_blank">
+                                    <a class="btn btn-whatsapp" href="https://wa.me/6285364424419 ?text=Assalamualaikum%2C%20saya%20ingin%20informasi%20layanan%20KUA." target="_blank">
                                         <i class="bi bi-whatsapp"></i> WhatsApp
                                     </a>
                                     <a class="btn btn-outline-success" href="#layanan">Daftar Layanan</a>
