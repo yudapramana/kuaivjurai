@@ -15,7 +15,7 @@
     <meta property="og:title" content="KUA IV Jurai — Palanta Sakinah">
     <meta property="og:locale" content="id_ID">
     <meta property="og:description" content="Palanta Sakinah: Pusat layanan informasi dan edukasi KUA IV Jurai. Semua info layanan dalam satu halaman.">
-    <meta property="og:image" content="{{ asset('images/kua/og-cover.jpg') }}" />
+    <meta property="og:image" content="{{ asset('images/kua/favicon.png') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ URL::current() }}" />
 
@@ -24,7 +24,7 @@
     <meta name="twitter:site" content="@palantasakinah" />
     <meta name="twitter:title" content="KUA IV Jurai — Palanta Sakinah" />
     <meta name="twitter:description" content="Palanta Sakinah: Pusat layanan informasi dan edukasi KUA IV Jurai.">
-    <meta name="twitter:image" content="{{ asset('images/kua/og-cover.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('images/kua/favicon.png') }}" />
     <meta property="twitter:url" content="{{ URL::current() }}">
 
     <link rel="canonical" href="{{ URL::current() }}" />
