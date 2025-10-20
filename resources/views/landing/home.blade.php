@@ -542,46 +542,228 @@
                 <div id="faq" class="mt-4">
                     <h5 class="mb-2">FAQ Singkat</h5>
                     <div class="accordion" id="faqAcc">
+
+                        {{-- 1. Syarat daftar nikah --}}
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="q1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
-                                    Bagaimana mendaftar nikah?
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
+                                    Syarat daftar nikah?
                                 </button>
                             </h2>
-                            <div id="a1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                            <div id="a1" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q1">
                                 <div class="accordion-body">
-                                    Lengkapi berkas (N1–N4, KTP, KK, dsb.), lakukan pendaftaran di KUA wilayah setempat,
-                                    verifikasi berkas, jadwalkan pemeriksaan, dan tentukan waktu akad.
+                                    <b>Syarat ringkas nikah:</b><br>
+                                    &bull; Formulir N1–N4 dari Kelurahan/Desa<br>
+                                    &bull; KTP &amp; KK (fotokopi)<br>
+                                    &bull; Pas foto 3&times;4 (disarankan 5 lembar)<br>
+                                    &bull; Dokumen tambahan bila duda/janda/dispensasi<br>
+                                    Daftar minimal <b>H-10 hari kerja</b> sebelum akad.
                                 </div>
                             </div>
                         </div>
+
+                        {{-- 2. H-10 kerja --}}
                         <div class="accordion-item mt-2">
                             <h2 class="accordion-header" id="q2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                                    H-10 kerja itu apa?
+                                </button>
+                            </h2>
+                            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q2">
+                                <div class="accordion-body">
+                                    <b>H-10 kerja</b> = batas minimal pengajuan pendaftaran nikah <b>10 hari kerja</b> sebelum hari akad.
+                                    Jika kurang dari itu, ajukan dispensasi ke Pengadilan/instansi terkait.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 3. Biaya PNBP nikah luar KUA/jam kerja --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
                                     Apakah ada biaya pencatatan nikah?
                                 </button>
                             </h2>
-                            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                            <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q3">
                                 <div class="accordion-body">
-                                    Sesuai ketentuan berlaku. Nikah di KUA pada hari/jam kerja biasanya tanpa biaya;
-                                    di luar kantor/jam kerja dikenakan PNBP sesuai peraturan.
+                                    Nikah <b>di KUA pada jam kerja</b> umumnya <b>tanpa biaya PNBP</b>.<br>
+                                    Nikah <b>di luar KUA/jam kerja</b> dikenakan <b>PNBP Rp600.000</b> (bayar via kanal <i>resmi</i>, bukan ke petugas).
                                 </div>
                             </div>
                         </div>
+
+                        {{-- 4. Durasi proses nikah/rujuk --}}
                         <div class="accordion-item mt-2">
-                            <h2 class="accordion-header" id="q3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
-                                    Bagaimana konsultasi keluarga?
+                            <h2 class="accordion-header" id="q4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                                    Berapa lama proses nikah?
                                 </button>
                             </h2>
-                            <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                            <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q4">
                                 <div class="accordion-body">
-                                    Datang ke KUA pada jam layanan atau ajukan jadwal konsultasi via WhatsApp untuk sesi tatap muka/online.
+                                    <b>Perkiraan durasi</b> (jika berkas lengkap):<br>
+                                    &bull; Pendaftaran nikah/rujuk: &plusmn;30 menit<br>
+                                    &bull; Pemeriksaan nikah/rujuk: &plusmn;30 menit<br>
+                                    &bull; Pencatatan nikah/rujuk: &plusmn;45 menit
                                 </div>
                             </div>
                         </div>
+
+                        {{-- 5. Rekomendasi nikah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+                                    Surat Rekomendasi Nikah (pindah KUA)
+                                </button>
+                            </h2>
+                            <div id="a5" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q5">
+                                <div class="accordion-body">
+                                    Diproses &plusmn;15 menit setelah verifikasi berkas dasar (N1–N4, KTP/KK, dst.).
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 6. Perbaikan/Ubah data nikah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6" aria-expanded="false" aria-controls="a6">
+                                    Perbaikan/ubah data nikah
+                                </button>
+                            </h2>
+                            <div id="a6" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q6">
+                                <div class="accordion-body">
+                                    Diproses &plusmn;20 menit setelah ada bukti pendukung (KTP/KK/akte, dsb.).
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 7. Duplikat Buku Nikah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q7">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a7" aria-expanded="false" aria-controls="a7">
+                                    Duplikat Buku Nikah (hilang/rusak)
+                                </button>
+                            </h2>
+                            <div id="a7" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q7">
+                                <div class="accordion-body">
+                                    <b>Syarat:</b><br>
+                                    &bull; Surat Kehilangan Kepolisian (jika hilang)<br>
+                                    &bull; Buku lama (jika rusak) untuk ditunjukkan<br>
+                                    &bull; KTP &amp; pas foto sesuai ketentuan<br>
+                                    Estimasi proses: &plusmn;30 menit (setelah berkas lengkap).
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 8. Daftar online SIMKAH --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q8">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a8" aria-expanded="false" aria-controls="a8">
+                                    Daftar nikah via SIMKAH
+                                </button>
+                            </h2>
+                            <div id="a8" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q8">
+                                <div class="accordion-body">
+                                    Pendaftaran nikah bisa melalui <b>SIMKAH</b>. Siapkan N1–N4, data calon, dan jadwal.
+                                    Setelah daftar, bawa berkas ke KUA untuk verifikasi &amp; penjadwalan.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 9. Bimbingan Perkawinan (Bimwin) --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q9">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a9" aria-expanded="false" aria-controls="a9">
+                                    Jadwal &amp; materi Bimwin
+                                </button>
+                            </h2>
+                            <div id="a9" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q9">
+                                <div class="accordion-body">
+                                    <b>Bimwin</b> biasanya <b>2 hari</b> (&plusmn;16 JP): kesiapan mental, komunikasi, keuangan, kesehatan reproduksi,
+                                    hingga simulasi ijab kabul. Jadwal bergilir/berkuota—hubungi petugas untuk slot terdekat.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 10. Jam layanan & lokasi --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q10">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a10" aria-expanded="false" aria-controls="a10">
+                                    Jam layanan &amp; lokasi KUA
+                                </button>
+                            </h2>
+                            <div id="a10" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q10">
+                                <div class="accordion-body">
+                                    <b>Senin–Kamis:</b> 08.00–15.00<br>
+                                    <b>Jumat:</b> 08.00–11.30<br>
+                                    <b>Sabtu–Minggu:</b> Tutup (layanan nikah sesuai jadwal)<br>
+                                    <b>Alamat:</b> Jl. Ujung Gurun Salido, Kec. IV Jurai, Pesisir Selatan.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 11. Taukil Wali bil Kitabah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q11">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a11" aria-expanded="false" aria-controls="a11">
+                                    Taukil Wali bil Kitābah
+                                </button>
+                            </h2>
+                            <div id="a11" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q11">
+                                <div class="accordion-body">
+                                    Surat perwakilan wali secara tertulis, diproses &plusmn;20 menit setelah pemeriksaan syarat wali &amp; dokumen pendukung.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 12. SK Belum Menikah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q12">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a12" aria-expanded="false" aria-controls="a12">
+                                    SK Belum Menikah (SKBM)
+                                </button>
+                            </h2>
+                            <div id="a12" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q12">
+                                <div class="accordion-body">
+                                    Diproses &plusmn;15 menit; bawa KTP/KK dan pengantar/keterangan dari Kelurahan/Desa bila diperlukan.
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 13. Wakaf & AIW --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q13">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a13" aria-expanded="false" aria-controls="a13">
+                                    Wakaf &amp; Akta Ikrar Wakaf (AIW)
+                                </button>
+                            </h2>
+                            <div id="a13" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q13">
+                                <div class="accordion-body">
+                                    <b>Estimasi:</b><br>
+                                    &bull; Pendaftaran wakaf: &plusmn;30 menit<br>
+                                    &bull; AIW: &plusmn;60 menit (setelah persyaratan tanah &amp; pihak terkait lengkap)<br>
+                                    &bull; Surat ket./rekomendasi masjid: &plusmn;15 menit
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 14. Legalisasi Buku Nikah --}}
+                        <div class="accordion-item mt-2">
+                            <h2 class="accordion-header" id="q14">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a14" aria-expanded="false" aria-controls="a14">
+                                    Legalisasi Buku Nikah
+                                </button>
+                            </h2>
+                            <div id="a14" class="accordion-collapse collapse" data-bs-parent="#faqAcc" aria-labelledby="q14">
+                                <div class="accordion-body">
+                                    Estimasi <b>&plusmn;10 menit</b> setelah verifikasi. Bawa buku nikah asli &amp; salinan yang akan dilegalisasi.
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
 
             </div>
         </section>
