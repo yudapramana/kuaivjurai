@@ -452,7 +452,7 @@
                             'nama' => 'RAFIKA YUSRI, S.E',
                             'jabatan' => 'Penata Layanan Operasional',
                             'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760929940/PandanViewMandeh/u7p4zcq2tbwlddehmryy.jpg',
                         ],
                         [
                             'nama' => 'NANDA ESA PUTRA, S.Pd.I',
