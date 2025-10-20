@@ -116,6 +116,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/visitor', [App\Http\Controllers\Visitor\DashboardController::class, 'index'])->name('visitor.index');
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('landing.index');
+    
+    Route::get('/registration', [App\Http\Controllers\HomeController::class, 'registration'])->name('landing.registration');
 
     Route::get('/contact', function () {
         return view('landing.contact', [

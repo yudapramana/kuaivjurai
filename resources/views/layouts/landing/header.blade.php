@@ -27,6 +27,7 @@
                 <li><a href="/#edukasi">Edukasi</a></li>
                 <li><a href="/#faq">FAQ</a></li>
                 <li><a href="/#hubungi">{{ __('messages.menu.contact') ?? 'Hubungi' }}</a></li>
+                <li><a href="/registration">{{ __('messages.menu.registration') ?? 'Registrasi' }}</a></li>
                 {{-- Opsi: tampilkan login hanya jika diperlukan --}}
                 {{-- <li><a href="/login" class="{{ request()->segment(1) == 'login' ? 'active' : '' }}">{{ __('messages.menu.login') ?? 'Masuk' }}</a></li> --}}
 

@@ -20,6 +20,7 @@ return array (
     'services' => 'Services',
     'login' => 'Login',
     'blog' => 'News',
+    'registration' => 'Registration',
   ),
   'footer' => 
   array (

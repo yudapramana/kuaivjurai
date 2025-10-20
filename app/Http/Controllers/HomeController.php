@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Registration;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,20 @@ class HomeController extends Controller
             'recent_posts' => $recent_posts
         ]);
     }
+
+    // App\Http\Controllers\RegistrationController.php
+    
+
+    public function registration(Request $req)
+    {
+        // Ambil semua / atau filter sesuai kebutuhan
+        $registrations = Registration::query()
+            ->latest('created_at')
+            ->get();
+
+        return view('landing.registrations', compact('registrations'));
+    }
+
 
 
     

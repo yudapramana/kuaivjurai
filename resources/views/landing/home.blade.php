@@ -31,7 +31,7 @@
     <link rel="alternate" hreflang="id-ID" href="{{ URL::current() }}" />
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/kua/favicon.png') }}" />
 
-    <style>
+    {{-- <style>
         /* Hero */
         #hero h1 {
             color: #fff;
@@ -104,7 +104,140 @@
             filter: brightness(.95);
             color: #fff;
         }
+    </style> --}}
+
+    <style>
+        /* ===== Hero ===== */
+        #hero h1 {
+            color: #fff;
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            text-shadow: 0 4px 24px rgba(0, 0, 0, .35);
+        }
+
+        #hero p.lead {
+            color: #f5f7fa;
+            font-size: clamp(15px, 2.2vw, 19px)
+        }
+
+        @media (max-width: 575.98px) {
+            .carousel-caption {
+                right: 0;
+                left: 0;
+                padding: 0 .75rem
+            }
+        }
+
+        .position-relative {
+            position: relative !important;
+        }
+
+        .bg-white {
+            background-color: #fafafa !important;
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: .2px;
+            margin-bottom: .75rem
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            font-size: .96rem
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9f8f0
+        }
+
+        /* ===== Kartu Struktur / Foto 3x4 ===== */
+        .org-card {
+            transition: transform .15s ease
+        }
+
+        .org-card:hover {
+            transform: translateY(-2px)
+        }
+
+        .org-card .portrait-3x4 {
+            width: 100%;
+            aspect-ratio: 3/4;
+            /* modern browsers */
+            overflow: hidden;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+            background: #f3f5f7;
+        }
+
+        .org-card .portrait-3x4 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 15%;
+            /* dorong ke atas supaya kepala tidak terpotong */
+            display: block;
+        }
+
+        /* Fallback untuk browser tanpa aspect-ratio */
+        @supports not (aspect-ratio: 3 / 4) {
+            .org-card .portrait-3x4 {
+                position: relative
+            }
+
+            .org-card .portrait-3x4::before {
+                content: "";
+                display: block;
+                padding-top: 133.333%
+            }
+
+            /* 4/3 * 100% */
+            .org-card .portrait-3x4>img {
+                position: absolute;
+                inset: 0
+            }
+        }
+
+        .badge-role {
+            font-size: .75rem;
+            background: #eaf2ff;
+            color: #2952ff
+        }
+
+        .table-hours td {
+            padding: .4rem .6rem
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff
+        }
+
+        .btn-whatsapp:hover {
+            filter: brightness(.95);
+            color: #fff
+        }
+
+        /* ===== Responsive spacing tweak ===== */
+        @media (max-width: 575.98px) {
+            .card .card-body {
+                padding: .9rem
+            }
+
+            .section-subtitle {
+                margin-bottom: 1rem
+            }
+        }
     </style>
+
 @endsection
 
 @section('content')
@@ -245,6 +378,7 @@
         </section>
 
         <!-- ======= Struktur Organisasi / Pegawai ======= -->
+
         <section id="struktur" class="pb-5 pt-3">
             <div class="container">
                 <h2 class="section-title">Struktur Organisasi / Pegawai</h2>
@@ -256,13 +390,13 @@
                             'nama' => 'ZAIMAL ELPETANI, S.Ag',
                             'jabatan' => 'Penghulu Ahli Madya (Kepala KUA)',
                             'peran' => 'Kepala KUA',
-                            'photo' => 'https://placehold.co/600x800?text=Kepala+KUA',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760922657/PandanViewMandeh/lwtazbyhluza0tbqb7zj.jpg',
                         ],
                         [
                             'nama' => 'RIFKI, S.HI',
                             'jabatan' => 'Penghulu Ahli Pertama',
                             'peran' => 'Penghulu',
-                            'photo' => 'https://placehold.co/600x800?text=Penghulu',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760922321/PandanViewMandeh/bzoiudf83hf5vtqv8118.jpg',
                         ],
                         [
                             'nama' => 'TENGKU ISKANDAR, S.Pd.I',
@@ -274,43 +408,43 @@
                             'nama' => 'JUNAIDI, S.HI',
                             'jabatan' => 'Penyuluh Agama Ahli Pertama',
                             'peran' => 'Penyuluh Agama',
-                            'photo' => 'https://placehold.co/600x800?text=Penyuluh+Agama',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760922369/PandanViewMandeh/p4bihhcctpaom2cfjyc5.jpg',
                         ],
                         [
                             'nama' => 'GONTRALIS, S.SosI',
                             'jabatan' => 'Penyuluh Agama Ahli Pertama',
                             'peran' => 'Penyuluh Agama',
-                            'photo' => 'https://placehold.co/600x800?text=Penyuluh+Agama',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760923034/PandanViewMandeh/woexlc4c4yea5l9jmzon.jpg',
                         ],
                         [
                             'nama' => 'FATMI, S. Ag',
                             'jabatan' => 'Penyuluh Agama Ahli Muda',
                             'peran' => 'Penyuluh Agama',
-                            'photo' => 'https://placehold.co/600x800?text=Penyuluh+Agama',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760923120/PandanViewMandeh/g8vhaahohe2lh4z9a3dz.jpg',
                         ],
                         [
                             'nama' => 'SYAFRI DODI, S.Pd.I',
                             'jabatan' => 'Penyuluh Agama Ahli Pertama',
                             'peran' => 'Penyuluh Agama',
-                            'photo' => 'https://placehold.co/600x800?text=Penyuluh+Agama',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760922420/PandanViewMandeh/uog5qnatsfteaiaisssx.jpg',
                         ],
                         [
                             'nama' => 'YENDRI WATI',
                             'jabatan' => 'Pengadministrasi Perkantoran',
                             'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760923165/PandanViewMandeh/r8hvrnbxs1jpsdsm74ln.jpg',
                         ],
                         [
                             'nama' => 'YOSSI ANITA',
                             'jabatan' => 'Pengadministrasi Perkantoran',
                             'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760922710/PandanViewMandeh/ljkhp0feinwqvn1zmbag.jpg',
                         ],
                         [
                             'nama' => 'DERI NOFITTA SARI, S.Pd.I',
                             'jabatan' => 'Penata Layanan Operasional',
                             'peran' => 'Staf Pelayanan',
-                            'photo' => 'https://placehold.co/600x800?text=Staf+Pelayanan',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760923246/PandanViewMandeh/hfjrgmr0luzhtxqfmwdq.jpg',
                         ],
                         [
                             'nama' => 'RAFIKA YUSRI, S.E',
@@ -329,15 +463,16 @@
 
                 <div class="row g-3">
                     @foreach ($pegawai as $p)
-                        <div class="col-12 col-md-6 col-lg-3">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <div class="card org-card shadow-sm border-0 h-100">
-                                <div class="rounded-top overflow-hidden" style="width:267px;height:220px;">
-                                    <img src="{{ $p['photo'] }}" alt="{{ $p['peran'] }}" class="w-100 h-100 d-block" style="object-fit:cover;object-position:50% 10%;" loading="lazy">
-                                </div>
+                                <figure class="portrait-3x4">
+                                    <img src="{{ $p['photo'] }}" alt="{{ $p['peran'] }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.src='{{ asset('images/kua/avatar-portrait-fallback.jpg') }}'; this.style.objectPosition='50% 20%';">
+                                </figure>
+
                                 <div class="card-body">
                                     <span class="badge badge-role mb-2 px-2 py-1 rounded">{{ $p['peran'] }}</span>
-                                    <h6 class="mb-1">{{ $p['nama'] }}</h6>
-                                    <small class="d-block text-muted mb-1">{{ $p['jabatan'] }}</small>
+                                    <h6 class="mb-1 text-truncate" title="{{ $p['nama'] }}">{{ $p['nama'] }}</h6>
+                                    <small class="d-block text-muted mb-1" style="min-height:1.25rem">{{ $p['jabatan'] }}</small>
                                     <p class="mb-0 text-muted" style="font-size:.93rem;">
                                         @switch($p['peran'])
                                             @case('Kepala KUA')
@@ -362,11 +497,6 @@
                     @endforeach
                 </div>
 
-                {{-- <div class="text-center mt-3">
-                    <a href="#" class="btn btn-outline-success disabled" tabindex="-1" aria-disabled="true">
-                        Unduh Struktur (PDF) — Segera
-                    </a>
-                </div> --}}
             </div>
         </section>
 

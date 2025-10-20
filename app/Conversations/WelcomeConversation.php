@@ -48,7 +48,7 @@ class WelcomeConversation extends Conversation
         $lang = $this->bot->userStorage()->get('lang') ?? 'id';
         $title = $lang === 'en' ? 'Main Menu' : 'Menu Utama';
 
-        $q = Question::create("<b>$title</b><br>Pilih topik:")
+        $q = Question::create("Pilih topik:")
             ->addButtons([
                 Button::create('📝 Pendaftaran Nikah')->value('nikah'),
                 Button::create('🔁 Rujuk')->value('rujuk'),
@@ -71,7 +71,7 @@ class WelcomeConversation extends Conversation
                 'konsultasi' => $this->bot->startConversation(new KonsultasiConversation()),
                 'status'     => $this->bot->startConversation(new TrackingConversation()),
                 'lokasi'     => $this->showLocation(),
-                'faq'        => $this->showFAQ(),
+                'faq'        => $this->bot->startConversation(new FAQConversation()),
                 default      => $this->repeatMenu(),
             };
         });
