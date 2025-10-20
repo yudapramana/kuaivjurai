@@ -404,7 +404,7 @@
                             'nama' => 'TENGKU ISKANDAR, S.Pd.I',
                             'jabatan' => 'Penyuluh Agama Ahli Muda',
                             'peran' => 'Penyuluh Agama',
-                            'photo' => 'https://placehold.co/600x800?text=Penyuluh+Agama',
+                            'photo' => 'https://res.cloudinary.com/dezj1x6xp/image/upload/v1760968615/PandanViewMandeh/plu3eujckrd4uqixunec.jpg',
                         ],
                         [
                             'nama' => 'JUNAIDI, S.HI',
