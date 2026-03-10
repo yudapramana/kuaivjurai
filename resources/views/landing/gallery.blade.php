@@ -4,103 +4,97 @@
 
 
 @section('_styles'){{-- Primary Meta Tags --}}
-<meta name="title" content="{{$title}}">
-<meta name="description" content="{{$title}}" />
-<meta name="keywords" content="About Pandan View Mandeh, Mandeh, Pesisir Selatan, Puncak Mandeh" />
-<meta name="author" content="Pandan View Mandeh" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="revisit-after" content="1 Days" />
+    <meta name="title" content="{{ $title }}">
+    <meta name="description" content="{{ $title }}" />
+    <meta name="keywords" content="About Pandan View Mandeh, Mandeh, Pesisir Selatan, Puncak Mandeh" />
+    <meta name="author" content="KUA IV Jurai" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="revisit-after" content="1 Days" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:site_name" content="{{$title}}">
-<meta property="og:title" content="{{$title}}">
-<meta property="og:locale" content="id_ID">
-<meta property="og:description"
-    content="Pandan View Mandeh Resort Pandan View Mandeh terletak dikawasan destinasi wisata bahari Teluk Mandeh yang menghadirkan sebuah kafe dan cottage untuk wisatawan lokal, domestik dan manca negara. Pandan View Mandeh terdapat beberapa spot spot berfoto yang indah dan pemandangan yang indah langsung k...">
-<meta property="og:image" content="{{ asset('sailor/img/logo.png') }}" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="{{ $title }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:description" content="KUA IV Jurai Resort Pandan View Mandeh terletak dikawasan destinasi wisata bahari Teluk Mandeh yang menghadirkan sebuah kafe dan cottage untuk wisatawan lokal, domestik dan manca negara. Pandan View Mandeh terdapat beberapa spot spot berfoto yang indah dan pemandangan yang indah langsung k...">
+    <meta property="og:image" content="{{ asset('sailor/img/logo.png') }}" />
 
-<meta property="og:type" content=website />
-<meta property="og:url" content="{{ URL::current() }}" />
+    <meta property="og:type" content=website />
+    <meta property="og:url" content="{{ URL::current() }}" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="{{$title}}" />
-<meta name="twitter:title" content="{{$title}}" />
-<meta name="twitter:description"
-    content="Pandan View Mandeh Resort Pandan View Mandeh terletak dikawasan destinasi wisata bahari Teluk Mandeh yang menghadirkan sebuah kafe dan cottage untuk wisatawan lokal, domestik dan manca negara. Pandan View Mandeh terdapat beberapa spot spot berfoto yang indah dan pemandangan yang indah langsung k...">
-<meta name="twitter:image" content="{{ asset('sailor/img/logo.png') }}" />
-<meta property="twitter:url" content="{{ URL::current() }}">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="{{ $title }}" />
+    <meta name="twitter:title" content="{{ $title }}" />
+    <meta name="twitter:description" content="KUA IV Jurai Resort Pandan View Mandeh terletak dikawasan destinasi wisata bahari Teluk Mandeh yang menghadirkan sebuah kafe dan cottage untuk wisatawan lokal, domestik dan manca negara. Pandan View Mandeh terdapat beberapa spot spot berfoto yang indah dan pemandangan yang indah langsung k...">
+    <meta name="twitter:image" content="{{ asset('sailor/img/logo.png') }}" />
+    <meta property="twitter:url" content="{{ URL::current() }}">
 
-<link rel="canonical" href="{{ URL::current() }}" />
-<link rel="alternate" hreflang="en-US" href="{{ URL::current() }}" />
-<link rel="shortcut icon" type="image/png" href="{{ URL::current() }}" />
+    <link rel="canonical" href="{{ URL::current() }}" />
+    <link rel="alternate" hreflang="en-US" href="{{ URL::current() }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ URL::current() }}" />
 @endsection
 
 @section('content')
-<main id="main">
+    <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>{{__('messages.menu.gallery')}}</h2>
-                <ol>
-                    <li><a href="/">{{__('messages.menu.home')}}</a></li>
-                    <li>{{__('messages.menu.gallery')}}</li>
-                </ol>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{ __('messages.menu.gallery') }}</h2>
+                    <ol>
+                        <li><a href="/">{{ __('messages.menu.home') }}</a></li>
+                        <li>{{ __('messages.menu.gallery') }}</li>
+                    </ol>
+                </div>
+
             </div>
+        </section><!-- End Breadcrumbs -->
 
-        </div>
-    </section><!-- End Breadcrumbs -->
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        {{-- <li data-filter=".filter-app">App</li>
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            {{-- <li data-filter=".filter-app">App</li>
                         <li data-filter=".filter-card">Card</li>
                         <li data-filter=".filter-web">Web</li> --}}
 
-                        @foreach($filterTags as $key => $tag)
-                        <li data-filter="{{ '.' . $tag}}">{{$tag}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row portfolio-container">
-
-
-                @foreach($galleries as $key => $gallery)
-
-                <div class="col-lg-4 col-md-6 portfolio-item {{$gallery->filter_tag}}">
-                    <div class="portfolio-wrap">
-                        <img src="{{ $gallery->thumbnail_image }}" class="img-fluid" alt="{{ $gallery->alt }}">
-                        <div class="portfolio-info">
-                            <h4>{{ $gallery->title }}</h4>
-                            <p>{{ $gallery->filter_tag }}</p>
-                            <div class="portfolio-links">
-                                <a href="{{ $gallery->image_url }}" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="{{ $gallery->title }}"><i
-                                        class="bx bx-plus"></i></a>
-                                <a href="#" class="portfolio-details-lightbox" data-glightbox="type: external"
-                                    title="Portfolio Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
+                            @foreach ($filterTags as $key => $tag)
+                                <li data-filter="{{ '.' . $tag }}">{{ $tag }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="row portfolio-container">
+
+
+                    @foreach ($galleries as $key => $gallery)
+                        <div class="col-lg-4 col-md-6 portfolio-item {{ $gallery->filter_tag }}">
+                            <div class="portfolio-wrap">
+                                <img src="{{ $gallery->thumbnail_image }}" class="img-fluid" alt="{{ $gallery->alt }}">
+                                <div class="portfolio-info">
+                                    <h4>{{ $gallery->title }}</h4>
+                                    <p>{{ $gallery->filter_tag }}</p>
+                                    <div class="portfolio-links">
+                                        <a href="{{ $gallery->image_url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $gallery->title }}"><i class="bx bx-plus"></i></a>
+                                        <a href="#" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 
 
 
-            </div>
+                </div>
 
-            {{-- <div class="row portfolio-container">
+                {{-- <div class="row portfolio-container">
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-wrap">
@@ -266,8 +260,8 @@
 
             </div> --}}
 
-        </div>
-    </section><!-- End Portfolio Section -->
+            </div>
+        </section><!-- End Portfolio Section -->
 
-</main><!-- End #main -->
+    </main><!-- End #main -->
 @endsection

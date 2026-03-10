@@ -3,121 +3,119 @@
 
 @section('_styles')
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Primary Meta Tags -->
-<title>{{ $post->title }}</title>
-<meta name="title" content="{{ $post->title }}">
-<meta name="description" content="{{ $post->meta_desc }}">
-<meta name="keywords" content="{{ $post->keywords }}">
-<meta name="author" content="Pandan View Mandeh" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="revisit-after" content="1 Days" />
+    <!-- Primary Meta Tags -->
+    <title>{{ $post->title }}</title>
+    <meta name="title" content="{{ $post->title }}">
+    <meta name="description" content="{{ $post->meta_desc }}">
+    <meta name="keywords" content="{{ $post->keywords }}">
+    <meta name="author" content="KUA IV Jurai" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="revisit-after" content="1 Days" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:site_name" content="PANDAN VIEW MANDEH">
-<meta property="og:title" content="PANDAN VIEW MANDEH - {{ $post->title }} ">
-<meta property="og:locale" content="id_ID">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="KUA IV Jurai">
+    <meta property="og:title" content="KUA IV Jurai - {{ $post->title }} ">
+    <meta property="og:locale" content="id_ID">
 
-<meta property="og:type" content=article />
-<meta property="og:url" content="{{ URL::current() }}">
-<meta property="og:description" content="{{ $post->meta_desc }}">
-<meta property="og:image" content="{{ $post->cover }}">
+    <meta property="og:type" content=article />
+    <meta property="og:url" content="{{ URL::current() }}">
+    <meta property="og:description" content="{{ $post->meta_desc }}">
+    <meta property="og:image" content="{{ $post->cover }}">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ URL::current() }}">
-<meta property="twitter:title" content="{{ $post->title }}">
-<meta property="twitter:description" content="{{ $post->meta_desc }}">
-<meta property="twitter:image" content="{{ $post->cover }}">
-<meta name="twitter:site" content="{{ URL::current() }}" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ URL::current() }}">
+    <meta property="twitter:title" content="{{ $post->title }}">
+    <meta property="twitter:description" content="{{ $post->meta_desc }}">
+    <meta property="twitter:image" content="{{ $post->cover }}">
+    <meta name="twitter:site" content="{{ URL::current() }}" />
 
-<link rel="canonical" href="{{ URL::current() }}" />
-<link rel="alternate" hreflang="en-US" href="{{ URL::current() }}" />
-<link rel="shortcut icon" type="image/png" href="{{ URL::current() }}" />
+    <link rel="canonical" href="{{ URL::current() }}" />
+    <link rel="alternate" hreflang="en-US" href="{{ URL::current() }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ URL::current() }}" />
 
-<style>
-    .preserveLines {
-        white-space: pre-wrap;
-    }
-
-</style>
+    <style>
+        .preserveLines {
+            white-space: pre-wrap;
+        }
+    </style>
 @endsection
 
 @section('content')
 
-<main id="main">
+    <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Post</h2>
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>Post Detail</li>
-                </ol>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Post</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Post Detail</li>
+                    </ol>
+                </div>
+
             </div>
+        </section><!-- End Breadcrumbs -->
 
-        </div>
-    </section><!-- End Breadcrumbs -->
+        <!-- ======= Blog Section ======= -->
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
 
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
+                <div class="row">
 
-            <div class="row">
+                    <div class="col-lg-8 entries">
 
-                <div class="col-lg-8 entries">
+                        <article class="entry entry-single">
 
-                    <article class="entry entry-single">
+                            <div class="entry-img">
+                                <img src="{{ $post->cover }}" alt="" class="img-fluid">
+                            </div>
 
-                        <div class="entry-img">
-                            <img src="{{$post->cover}}" alt="" class="img-fluid">
-                        </div>
+                            <h1 class="entry-title">
+                                <a href="/post/{{ $post->slug }}">{{ $post->title }}</a>
+                            </h1>
 
-                        <h1 class="entry-title">
-                            <a href="/post/{{$post->slug}}">{{$post->title}}</a>
-                        </h1>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="/post/{{ $post->slug }}">{{ $post->user->username }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/post/{{ $post->slug }}"><time datetime="{{ $post->created_at->format('Y-m-d') }}">{{ $post->created_at->format('d F Y') }}</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="/post/{{ $post->slug }}">{{ $post->view_count }} Reads</a></li>
+                                </ul>
+                            </div>
 
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="/post/{{$post->slug}}">{{ $post->user->username }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/post/{{$post->slug}}"><time datetime="{{$post->created_at->format('Y-m-d')}}">{{ $post->created_at->format('d F Y') }}</time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="/post/{{$post->slug}}">{{$post->view_count}} Reads</a></li>
-                            </ul>
-                        </div>
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6641141866403336" crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-6641141866403336" data-ad-slot="4286197238"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
 
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6641141866403336" crossorigin="anonymous"></script>
-                        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-6641141866403336" data-ad-slot="4286197238"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            <div class="entry-content">
+                                {!! $post->desc !!}
+                            </div>
 
-                        </script>
+                            <div class="entry-footer">
+                                <i class="bi bi-folder"></i>
+                                <ul class="cats">
+                                    <li><a href="/blog?category={{ $post->category->slug }}">{{ $post->category->name }}</a></li>
+                                </ul>
 
-                        <div class="entry-content">
-                            {!!$post->desc!!}
-                        </div>
+                                <i class="bi bi-tags"></i>
+                                <ul class="tags">
+                                    @foreach ($post->tags as $key => $tag)
+                                        <li><a href="/blog?tag={{ $tag->slug }}">{{ $tag->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
 
-                        <div class="entry-footer">
-                            <i class="bi bi-folder"></i>
-                            <ul class="cats">
-                                <li><a href="/blog?category={{$post->category->slug}}">{{$post->category->name}}</a></li>
-                            </ul>
+                        </article><!-- End blog entry -->
 
-                            <i class="bi bi-tags"></i>
-                            <ul class="tags">
-                                @foreach($post->tags as $key => $tag)
-                                <li><a href="/blog?tag={{$tag->slug}}">{{$tag->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                    </article><!-- End blog entry -->
-
-                    {{-- <div class="blog-author d-flex align-items-center">
+                        {{-- <div class="blog-author d-flex align-items-center">
                         <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
                         <div>
                             <h4>Jane Smith</h4>
@@ -132,7 +130,7 @@
                         </div>
                     </div><!-- End blog author bio --> --}}
 
-                    {{-- <div class="blog-comments">
+                        {{-- <div class="blog-comments">
 
                         <h4 class="comments-count">8 Comments</h4>
 
@@ -255,62 +253,61 @@
 
                     </div><!-- End blog comments --> --}}
 
-                </div><!-- End blog entries list -->
+                    </div><!-- End blog entries list -->
 
-                <div class="col-lg-4">
+                    <div class="col-lg-4">
 
-                    <div class="sidebar">
+                        <div class="sidebar">
 
-                        <h3 class="sidebar-title">Search</h3>
-                        <div class="sidebar-item search-form">
-                            <form action="/blog">
-                                <input type="text" name="search" required value="{{ request()->input('search', old('search')) }}" />
-                                <button type="submit"><i class="bi bi-search"></i></button>
-                            </form>
-                        </div><!-- End sidebar search formn-->
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="sidebar-item search-form">
+                                <form action="/blog">
+                                    <input type="text" name="search" required value="{{ request()->input('search', old('search')) }}" />
+                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                </form>
+                            </div><!-- End sidebar search formn-->
 
-                        <h3 class="sidebar-title">Categories</h3>
-                        <div class="sidebar-item categories">
-                            <ul>
-                                @foreach ($categories as $category)
-                                <li><a href="/blog?category={{$category->slug}}">{{$category->name}} <span>({{$category->posts_count}})</span></a></li>
+                            <h3 class="sidebar-title">Categories</h3>
+                            <div class="sidebar-item categories">
+                                <ul>
+                                    @foreach ($categories as $category)
+                                        <li><a href="/blog?category={{ $category->slug }}">{{ $category->name }} <span>({{ $category->posts_count }})</span></a></li>
+                                    @endforeach
+                                </ul>
+                            </div><!-- End sidebar categories-->
 
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="sidebar-item recent-posts">
+
+                                @foreach ($recent_posts as $key => $post)
+                                    <div class="post-item clearfix">
+                                        <img src="{{ $post->cover }}" alt="">
+                                        <h4><a href="/post/{{ $post->slug }}">{{ \Illuminate\Support\Str::limit($post->title, 20, $end = '...') }}</a></h4>
+                                        <time datetime="2020-01-01"> {{ $post->created_at->format('d F Y') }}</time>
+                                    </div>
                                 @endforeach
-                            </ul>
-                        </div><!-- End sidebar categories-->
-
-                        <h3 class="sidebar-title">Recent Posts</h3>
-                        <div class="sidebar-item recent-posts">
-
-                            @foreach($recent_posts as $key => $post)
-                            <div class="post-item clearfix">
-                                <img src="{{$post->cover}}" alt="">
-                                <h4><a href="/post/{{$post->slug}}">{{\Illuminate\Support\Str::limit($post->title, 20, $end='...')}}</a></h4>
-                                <time datetime="2020-01-01"> {{ $post->created_at->format('d F Y') }}</time>
-                            </div>
-                            @endforeach
 
 
-                        </div><!-- End sidebar recent posts-->
+                            </div><!-- End sidebar recent posts-->
 
-                        <h3 class="sidebar-title">Tags</h3>
-                        <div class="sidebar-item tags">
-                            <ul>
-                                @foreach ($tags as $tag)
-                                <li><a href="/blog?tag={{$tag->slug}}">{{$tag->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div><!-- End sidebar tags-->
+                            <h3 class="sidebar-title">Tags</h3>
+                            <div class="sidebar-item tags">
+                                <ul>
+                                    @foreach ($tags as $tag)
+                                        <li><a href="/blog?tag={{ $tag->slug }}">{{ $tag->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div><!-- End sidebar tags-->
 
-                    </div><!-- End sidebar -->
+                        </div><!-- End sidebar -->
 
-                </div><!-- End blog sidebar -->
+                    </div><!-- End blog sidebar -->
+
+                </div>
 
             </div>
+        </section><!-- End Blog Section -->
 
-        </div>
-    </section><!-- End Blog Section -->
-
-</main><!-- End #main -->
+    </main><!-- End #main -->
 
 @endsection

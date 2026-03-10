@@ -19,7 +19,7 @@
 
     <meta name="description" content="Website Resmi MTQN Ke-40 Pesisir Selatan" />
     <meta name="keywords" content="Kemenag Pesisir Selatan,  Kemenag Pessel, MTQN, MTQ" />
-    <meta name="author" content="Pandan View Mandeh" />
+    <meta name="author" content="KUA IV Jurai" />
     <meta name="robots" content="all" />
     <meta name="revisit-after" content="1 Days" />
     <meta property="og:locale" content="en-US" />
