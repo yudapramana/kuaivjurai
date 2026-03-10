@@ -60,7 +60,7 @@
         @endcan
 
         @can('menu-data')
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link @if (request()->segment(1) == 'data') @else collapsed @endif" data-bs-target="#data-nav" data-bs-toggle="collapse" href="#" aria-expanded="@if (request()->segment(1) == 'data') true @else false @endif">
                     <i class="bi bi-chat-left-text"></i><span>Data Input</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -87,7 +87,7 @@
                         </li>
                     @endcan
                 </ul>
-            </li>
+            </li> --}}
         @endcan
 
         @can('menu-blog')
